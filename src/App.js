@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 function App() {
   const [questionList, setQuestionList] = useState([]);
   const [nameList, setNameList] = useState([]);
-  const [questionsPerPlayer, setQuestionsPerPlayer] = useState(3);
+  const [questionsPerPlayer, setQuestionsPerPlayer] = useState(2);
   const [formComplete, setFormComplete] = useState(false);
   const [personQuestionObject, setPersonQuestionObject] = useState({});
   const [selectedPerson, setSelectedPerson] = useState("")
@@ -101,7 +101,7 @@ function App() {
     if (!name||!Object.keys(questions).length) return
     var formattedQuestions = []
     questions[name].forEach((question, index) => {
-      formattedQuestions.push(<div key={String(index) + name} id={String(index) + name}>{String(index + 1)}) {question}</div>)
+      formattedQuestions.push(<div className="blurry-text" style={{fontSize:"18px","marginTop":"20px","marginBottom":"20px","width":"500px"}} key={String(index) + name} id={String(index) + name}>{String(index + 1)}) {question}</div>)
     })
     // setQuestionsToShow(formattedQuestions)
     return formattedQuestions
@@ -132,14 +132,16 @@ function App() {
       {formComplete ?
         (
           <>
-            <select value={selectedPerson} onChange={(e) => setSelectedPerson(e.target.value)}>
+            <div style={{width:"100%"}}>
+            <select style={{marginTop:"10px",marginLeft:"20px",width:"100px",height:"40px",fontSize:"20px"}}value={selectedPerson} onChange={(e) => setSelectedPerson(e.target.value)}>
               {selectOptionList()}
             </select>
-            <div>
+            </div>
+            <div style={{textAlign: "-webkit-center"}}>
               {/* {getQuestions(selectedPerson,personQuestionObject)} */}
               {questionsToShow}
             </div>
-            <div>
+            <div style={{"marginTop":"40px", textAlign: "-webkit-center"}}>
               <button onClick={() => changeQuestionForOne()}>ReRoll Questions</button>
               <button onClick={() => restart()}>Restart</button>
             </div>

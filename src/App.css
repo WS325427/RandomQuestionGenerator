@@ -42,3 +42,10 @@
 .flexDisplay{
   display: flex;
 }
+.blurry-text {
+  text-shadow: 0 0 10px black;
+  color: transparent;
+}
+.blurry-text:active,.blurry-text:hover{
+  text-shadow: 0 0 0px black;
+}
