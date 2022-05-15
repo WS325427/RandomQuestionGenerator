@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
-
+import {useState} from "react"
+//App will allow inputs of names, questions, and how many questions per person
 function App() {
+  const [questions,setQuestions] = useState([]);
+  const [named,setNames] = useState([]);
+  const [questionsPerPlayer,setQuestionsPerPlayer] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+      <div>Questions To Upload: </div>
+      <input type="file"></input>
+      </div>
+
+      <div>
+        <div>Names of Players: </div>
+      <input type="file"></input>
+      </div>
+      
+      <div>
+        <div>Questions per player</div>
+        <input type="number"></input>
+      </div>
+      
+      <button>Begin!</button>
     </div>
   );
 }
