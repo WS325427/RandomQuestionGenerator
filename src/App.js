@@ -101,7 +101,7 @@ function App() {
     if (!name||!Object.keys(questions).length) return
     var formattedQuestions = []
     questions[name].forEach((question, index) => {
-      formattedQuestions.push(<div className="blurry-text" style={{fontSize:"18px","marginTop":"20px","marginBottom":"20px","width":"500px"}} key={String(index) + name} id={String(index) + name}>{String(index + 1)}) {question}</div>)
+      formattedQuestions.push(<div className="blurry-text" style={{fontSize:"25px","marginTop":"50px","marginBottom":"20px","width":"500px",userSelect:"none"}} key={String(index) + name} id={String(index) + name}>{String(index + 1)}) {question}</div>)
     })
     // setQuestionsToShow(formattedQuestions)
     return formattedQuestions
@@ -132,8 +132,9 @@ function App() {
       {formComplete ?
         (
           <>
-            <div style={{width:"100%"}}>
-            <select style={{marginTop:"10px",marginLeft:"20px",width:"100px",height:"40px",fontSize:"20px"}}value={selectedPerson} onChange={(e) => setSelectedPerson(e.target.value)}>
+          <div style={{textAlign: "-webkit-center", fontWeight:'bolder',fontSize:"40px",background:"#C3D600"}}>Analytics - Crowd Dynamics Social</div> 
+            <div style={{width:"100%",textAlignLast:"center"}}>
+            <select style={{marginTop:"10px",width:"80%",height:"40px",fontSize:"20px",textAlign:"-webkit-center"}}value={selectedPerson} onChange={(e) => setSelectedPerson(e.target.value)}>
               {selectOptionList()}
             </select>
             </div>
